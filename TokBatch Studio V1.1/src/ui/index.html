@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TokBatch Studio</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="side">
+      <div class="brand">
+        <img src="logo-side.png" alt="Grupo Campos">
+      </div>
+      <nav class="nav" aria-label="Principal">
+        <button type="button" class="nav-btn active" data-view="inicio">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>
+          Início
+        </button>
+        <button type="button" class="nav-btn" data-view="config">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z"/><path d="M19.4 13a7.8 7.8 0 0 0 .1-2l2-1.2-2-3.4-2.3.6a7.6 7.6 0 0 0-1.7-1L15 3h-6l-.5 2.9a7.6 7.6 0 0 0-1.7 1L4.5 6.4l-2 3.4L4.5 11a7.8 7.8 0 0 0 0 2l-2 1.2 2 3.4 2.3-.6a7.6 7.6 0 0 0 1.7 1L9 21h6l.5-2.9a7.6 7.6 0 0 0 1.7-1l2.3.6 2-3.4z"/></svg>
+          Configurações
+        </button>
+        <button type="button" class="nav-btn" data-view="hist">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+          Histórico
+        </button>
+        <button type="button" class="nav-btn" data-view="ajuda">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.2 2.4c-.8.3-1.2.8-1.2 1.6V14"/><path d="M12 17h.01"/></svg>
+          Ajuda
+        </button>
+      </nav>
+      <div class="side-foot">
+        <strong>TokBatch Studio</strong>
+        <span>v1.1.0</span>
+        <span>© Grupo Campos</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="card" id="view-inicio">
+        <header class="card-head">
+          <h1>TokBatch Studio</h1>
+          <p>Baixe seus vídeos de um perfil sem copiar link por link.</p>
+        </header>
+
+        <div class="field">
+          <label for="url"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1.1l2.2-2.2a5 5 0 0 0-7.1-7.1L11 5"/><path d="M14 11a5 5 0 0 0-7.1-.1L4.7 13a5 5 0 0 0 7.1 7.1L13 19"/></svg></span>Link do perfil</label>
+          <div class="row">
+            <input id="url" type="text" spellcheck="false" placeholder="https://www.tiktok.com/@seu_usuario" autocomplete="off">
+            <button type="button" class="btn btn-primary btn-inline" id="btn-colar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="4" width="11" height="16" rx="2"/><path d="M8 8H6a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h8"/></svg>
+              Colar
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="dest"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/></svg></span>Pasta de destino</label>
+          <div class="row">
+            <input id="dest" type="text" spellcheck="false" value="C:\Users\Administrador\Downloads\TokBatch">
+            <button type="button" class="btn btn-ghost btn-inline" id="btn-escolher">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/></svg>
+              Escolher
+            </button>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="field">
+            <label for="cookies"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>Cookies do navegador</label>
+            <div class="select-wrap">
+              <select id="cookies">
+                <option value="">Sem cookies (perfil público)</option>
+                <option value="chrome">Google Chrome</option>
+                <option value="edge">Microsoft Edge</option>
+                <option value="firefox">Firefox</option>
+                <option value="brave">Brave</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <div class="label"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z"/><path d="M19.4 13a7.8 7.8 0 0 0 .1-2l2-1.2-2-3.4-2.3.6a7.6 7.6 0 0 0-1.7-1L15 3h-6l-.5 2.9a7.6 7.6 0 0 0-1.7 1L4.5 6.4l-2 3.4L4.5 11a7.8 7.8 0 0 0 0 2l-2 1.2 2 3.4 2.3-.6a7.6 7.6 0 0 0 1.7 1L9 21h6l.5-2.9a7.6 7.6 0 0 0 1.7-1l2.3.6 2-3.4z"/></svg></span>Opções</div>
+            <div class="checks">
+              <label class="check"><input id="opt-skip" type="checkbox" checked>Não baixar vídeos repetidos</label>
+              <label class="check"><input id="opt-json" type="checkbox">Salvar metadados (json)</label>
+              <label class="check"><input id="opt-thumb" type="checkbox">Salvar miniaturas</label>
+              <label class="check"><input id="opt-update" type="checkbox">Atualizar yt-dlp antes</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-baixar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M5 19h14"/></svg>
+            Baixar vídeos
+          </button>
+          <button type="button" class="btn btn-stop" id="btn-parar" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/></svg>
+            Parar
+          </button>
+          <button type="button" class="btn btn-dark" id="btn-abrir">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/></svg>
+            Abrir pasta
+          </button>
+          <div class="status" id="status">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.2 12.2 2.4 2.4 5.2-5.4"/></svg>
+            <span id="status-text">Pronto.</span>
+          </div>
+        </div>
+
+        <div class="field grow">
+          <div class="label"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 7h11M8 12h11M8 17h11"/><path d="M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span>Atividade</div>
+          <div class="log" id="log" role="log" aria-live="polite">Pronto para baixar.</div>
+        </div>
+        <p class="legal">Use somente para conteúdo seu ou que você tenha permissão para salvar.</p>
+      </section>
+
+      <section class="card view-alt" id="view-config" hidden>
+        <header class="card-head">
+          <h1>Configurações</h1>
+          <p>Onde o TokBatch Studio procura o yt-dlp e grava os vídeos.</p>
+        </header>
+        <div class="info-list">
+          <div><span>yt-dlp</span><strong id="cfg-ytdlp">Verificando…</strong></div>
+          <div><span>Pasta padrão</span><strong id="cfg-dest"></strong></div>
+          <div><span>Versão</span><strong>1.1.0</strong></div>
+        </div>
+      </section>
+
+      <section class="card view-alt" id="view-hist" hidden>
+        <header class="card-head">
+          <h1>Histórico</h1>
+          <p>Últimos downloads desta sessão.</p>
+        </header>
+        <div class="log tall" id="hist">Nenhum download nesta sessão.</div>
+      </section>
+
+      <section class="card view-alt" id="view-ajuda" hidden>
+        <header class="card-head">
+          <h1>Ajuda</h1>
+          <p>Como baixar os vídeos de um perfil.</p>
+        </header>
+        <div class="help">
+          <p>Cole o link de um perfil do TikTok e clique em “Baixar vídeos”. O programa baixa os vídeos disponíveis para a pasta selecionada.</p>
+          <p>Perfis públicos funcionam sem cookies. Se o perfil for privado e você tiver acesso, escolha o navegador em que já está conectado.</p>
+          <p>Use somente conteúdo seu ou que você tenha permissão para salvar.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="rail">
+      <img class="hero" src="hero.png" alt="Grupo Campos">
+      <div class="tip">
+        <div class="tip-title">
+          <span class="info" aria-hidden="true">i</span>
+          Dica
+        </div>
+        <p>Cole o link de um perfil do TikTok e clique em “Baixar vídeos”. O programa irá baixar todos os vídeos disponíveis do perfil para a pasta selecionada.</p>
+      </div>
+    </aside>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
